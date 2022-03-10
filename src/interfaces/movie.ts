@@ -4,7 +4,7 @@ export interface Movie {
     title: string;
     released: number;
     description: string;
-    youtube: string;
+    id: string;
     rating: number;
     soundtrack: Song[];
 }

@@ -1,12 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { MovieRating } from "./MovieRating";
 import { MovieTrailer } from "./MovieTrailer";
 import { SongList } from "./SongList";
 import { Movie } from "../interfaces/movie";
-import { Watch } from "../interfaces/watch";
-import { WatchStatus } from "./WatchStatus";
 import { RecordControls } from "./RecordControls";
 import { MovieEditor } from "./MovieEditor";
 

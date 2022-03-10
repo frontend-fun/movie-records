@@ -4,12 +4,11 @@ import { MovieList } from "./components/MovieList";
 import { AddMovieModal } from "./components/AddMovieModal";
 import ghibli from "./data/ghibli_movies.json";
 import { Movie } from "./interfaces/movie";
-import { Watch } from "./interfaces/watch";
 import { Button } from "react-bootstrap";
 
 const MOVIES = ghibli.map(
-    (movie: Partial<Movie>): Movie => ({
-        ...(movie as Movie),
+    (movie): Movie => ({
+        ...movie,
         watched: { seen: false, liked: false, when: null }
     })
 );

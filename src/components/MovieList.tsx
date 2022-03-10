@@ -2,7 +2,6 @@ import React from "react";
 import { Movie } from "../interfaces/movie";
 import { Stack } from "react-bootstrap";
 import { MovieView } from "./MovieView";
-import { Watch } from "../interfaces/watch";
 
 export function MovieList({
     movies,

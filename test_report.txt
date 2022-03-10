@@ -2,8 +2,41 @@
 > movie-records@0.1.0 test
 > react-scripts test "--coverage"
 
+  console.error
+    Warning: React does not recognize the `allowTransparency` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `allowtransparency` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+        at iframe
+        at PlaySong (/home/runner/work/movie-records/movie-records/src/components/PlaySong.tsx:4:28)
+        at li
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/ListGroupItem.js:27:3
+        at ol
+        at /home/runner/work/movie-records/movie-records/node_modules/@restart/ui/cjs/Nav.js:43:9
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/ListGroup.js:38:43
+        at SongList (/home/runner/work/movie-records/movie-records/src/components/SongList.tsx:6:28)
+        at div
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Col.js:72:8
+        at div
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Row.js:22:3
+        at div
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Container.js:24:3
+        at MovieView (/home/runner/work/movie-records/movie-records/src/components/MovieView.tsx:12:5)
+        at div
+        at div
+        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Stack.js:23:7
+        at MovieList (/home/runner/work/movie-records/movie-records/src/components/MovieList.tsx:7:5)
+        at div
+        at div
+        at App (/home/runner/work/movie-records/movie-records/src/App.tsx:29:33)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (40 ms)
+  ✕ renders the course name somewhere (382 ms)
 
   ● renders the course name somewhere
 
@@ -20,12 +53,148 @@ FAIL src/App.test.tsx
           [36m>[39m
             [0mMovie Records[0m
           [36m</header>[39m
-          [36m<p>[39m
-            [0mTrack who watched what![0m
-          [36m</p>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+          [36m<div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"vstack gap-3"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"container"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"row"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m>[39m
+                      [36m<h3>[39m
+                        [0mKiki's Delivery Service[0m
+                      [36m</h3>[39m
+                      [36m<div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"float-right me-3 btn btn-primary btn-sm"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mMark as watched[0m
+                        [36m</button>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"float-right btn btn-primary btn-sm"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mEdit[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<span>[39m
+                        [0m⭐⭐⭐⭐[0m
+                        [0m✰[0m
+                      [36m</span>[39m
+                      [36m<i>[39m
+                        [0m Released [0m
+                        [0m1990[0m
+                      [36m</i>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"row"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mIn this anime feature, 13-year-old Kiki moves to a seaside town with her talking cat, Jiji, to spend a year alone, in accordance with her village's tradition for witches in training. After learning to control her broomstick, Kiki sets up a flying courier service and soon becomes a fixture in the community. But when the insecure young witch begins questioning herself and loses her magic abilities, she must overcome her self-doubt to get her powers back.[0m
+                      [36m</p>[39m
+                      [36m<ol[39m
+                        [33mclass[39m=[32m"list-group list-group-numbered"[39m
+                      [36m>[39m
+                        [36m<li[39m
+                          [33mclass[39m=[32m"d-flex align-items-start list-group-item"[39m
+                        [36m>[39m
+                          [36m<iframe[39m
+                            [33mclass[39m=[32m"ms-4"[39m
+                            [33mframeborder[39m=[32m"0"[39m
+                            [33mheight[39m=[32m"80"[39m
+                            [33msrc[39m=[32m"https://open.spotify.com/embed?uri=spotify:track:2ZJ28Rm7OXMYJshLtp5uff?si=4b4c21e3d65b4b2a"[39m
+                            [33mwidth[39m=[32m"350"[39m
+                          [36m/>[39m
+                        [36m</li>[39m
+                        [36m<li[39m
+                          [33mclass[39m=[32m"d-flex align-items-start list-group-item"[39m
+                        [36m>[39m
+                          [36m<iframe[39m
+                            [33mclass[39m=[32m"ms-4"[39m
+                            [33mframeborder[39m=[32m"0"[39m
+                            [33mheight[39m=[32m"80"[39m
+                            [33msrc[39m=[32m"https://open.spotify.com/embed?uri=spotify:track:1P47jw1VxOTQ0MM6sGKCkP?si=154df33f810c4fda"[39m
+                            [33mwidth[39m=[32m"350"[39m
+                          [36m/>[39m
+                        [36m</li>[39m
+                      [36m</ol>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m>[39m
+                      [36m<iframe[39m
+                        [33mallow[39m=[32m"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"[39m
+                        [33mallowfullscreen[39m=[32m""[39m
+                        [33mframeborder[39m=[32m"0"[39m
+                        [33mheight[39m=[32m"361"[39m
+                        [33msrc[39m=[32m"https://www.youtube.com/embed/4bG17OYs-GA"[39m
+                        [33mtitle[39m=[32m"YouTube video player"[39m
+                        [33mwidth[39m=[32m"642"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"container"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"row"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m>[39m
+                      [36m<h3>[39m
+                        [0mPonyo[0m
+                      [36m</h3>[39m
+                      [36m<div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"float-right me-3 btn btn-primary btn-sm"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mMark as watched[0m
+                        [36m</button>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"float-right btn btn-primary btn-sm"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mEdit[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<span>[39m
+                        [0m⭐⭐⭐⭐[0m
+                        [0m✰[0m
+                      [36m</span>[39m
+                      [36m<i>[39m
+                        [0m Released [0m
+                        [0m2008[0m
+                      [36m</i>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"row"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m>[39m
+                      [36m<p>[39m
+                        [0mDuring a forbidden excursion to see the surface world, a goldfish princess encounters a human boy named Sosuke, who gives her the name Ponyo. Ponyo longs to become human, and as her friendship with Sosuke grows, she becomes more humanlike. Ponyo's f...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -45,14 +214,32 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-----------|---------|----------|---------|---------|-------------------
-File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------|---------|----------|---------|---------|-------------------
-All files |     100 |      100 |     100 |     100 |                   
- App.tsx  |     100 |      100 |     100 |     100 |                   
-----------|---------|----------|---------|---------|-------------------
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    31.5 |       15 |      24 |   32.85 |                   
+ src                   |      35 |        0 |   15.38 |   41.17 |                   
+  App.tsx              |      35 |        0 |   15.38 |   41.17 | 17,33-58          
+ src/components        |   30.18 |    21.42 |   27.02 |   30.18 |                   
+  AddMovieModal.tsx    |   42.85 |      100 |      25 |   42.85 | 20-35,54          
+  EditableSongList.tsx |       0 |      100 |       0 |       0 | 12-55             
+  MovieEditor.tsx      |       0 |        0 |       0 |       0 | 17-121            
+  MovieList.tsx        |     100 |      100 |     100 |     100 |                   
+  MovieRating.tsx      |     100 |      100 |     100 |     100 |                   
+  MovieTrailer.tsx     |     100 |      100 |     100 |     100 |                   
+  MovieView.tsx        |      50 |       50 |   33.33 |      50 | 25,42             
+  PlaySong.tsx         |     100 |      100 |     100 |     100 |                   
+  ReadOnlySongs.tsx    |       0 |      100 |       0 |       0 | 6-9               
+  RecordControls.tsx   |      20 |    33.33 |      20 |      20 | 20-48             
+  SongList.tsx         |     100 |      100 |     100 |     100 |                   
+  WatchStatus.tsx      |       0 |        0 |       0 |       0 | 5                 
+ src/interfaces        |       0 |        0 |       0 |       0 |                   
+  movie.ts             |       0 |        0 |       0 |       0 |                   
+  song.ts              |       0 |        0 |       0 |       0 |                   
+  watch.ts             |       0 |        0 |       0 |       0 |                   
+-----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.782 s
+Time:        2.447 s
 Ran all test suites.

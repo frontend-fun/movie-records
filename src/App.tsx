@@ -62,7 +62,6 @@ function App(): JSX.Element {
                     deleteMovie={deleteMovie}
                     setMovieWatched={setMovieWatched}
                 ></MovieList>
-                
             </div>
         </div>
     );

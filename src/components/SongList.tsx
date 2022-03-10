@@ -1,6 +1,6 @@
 import React from "react";
 import { Song } from "../interfaces/song";
-import { ListGroup, Badge } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { PlaySong } from "./PlaySong";
 
 export function SongList({ songs }: { songs: Song[] }): JSX.Element {

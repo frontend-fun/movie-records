@@ -36,7 +36,7 @@
       at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (420 ms)
+  ✕ renders the course name somewhere (370 ms)
 
   ● renders the course name somewhere
 
@@ -217,21 +217,21 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    31.5 |       15 |      24 |   32.85 |                   
+All files              |   28.75 |    13.63 |   21.42 |   30.26 |                   
  src                   |      35 |        0 |   15.38 |   41.17 |                   
   App.tsx              |      35 |        0 |   15.38 |   41.17 | 17,33-58          
- src/components        |   30.18 |    21.42 |   27.02 |   30.18 |                   
+ src/components        |   26.66 |    18.75 |   23.25 |   27.11 |                   
   AddMovieModal.tsx    |   42.85 |      100 |      25 |   42.85 | 20-35,54          
   EditableSongList.tsx |       0 |      100 |       0 |       0 | 12-55             
-  MovieEditor.tsx      |       0 |        0 |       0 |       0 | 17-121            
+  MovieEditor.tsx      |       0 |        0 |       0 |       0 | 18-127            
   MovieList.tsx        |     100 |      100 |     100 |     100 |                   
   MovieRating.tsx      |     100 |      100 |     100 |     100 |                   
   MovieTrailer.tsx     |     100 |      100 |     100 |     100 |                   
   MovieView.tsx        |      50 |       50 |   33.33 |      50 | 25,42             
   PlaySong.tsx         |     100 |      100 |     100 |     100 |                   
-  ReadOnlySongs.tsx    |       0 |      100 |       0 |       0 | 6-9               
   RecordControls.tsx   |      20 |    33.33 |      20 |      20 | 20-48             
   SongList.tsx         |     100 |      100 |     100 |     100 |                   
+  SoundtrackEditor.tsx |       0 |        0 |       0 |       0 | 11-52             
   WatchStatus.tsx      |       0 |        0 |       0 |       0 | 5                 
  src/interfaces        |       0 |        0 |       0 |       0 |                   
   movie.ts             |       0 |        0 |       0 |       0 |                   
@@ -241,5 +241,5 @@ All files              |    31.5 |       15 |      24 |   32.85 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.721 s
+Time:        2.871 s
 Ran all test suites.

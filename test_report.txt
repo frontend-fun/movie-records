@@ -36,7 +36,7 @@
       at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (382 ms)
+  ✕ renders the course name somewhere (420 ms)
 
   ● renders the course name somewhere
 
@@ -241,5 +241,5 @@ All files              |    31.5 |       15 |      24 |   32.85 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.447 s
+Time:        2.721 s
 Ran all test suites.

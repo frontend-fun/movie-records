@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Button, Container, Row, Col, Form } from "react-bootstrap";
 import { Movie } from "../interfaces/movie";
-import { ReadOnlySongs } from "./ReadOnlySongs";
+import { Song } from "../interfaces/song";
+import { SoundtrackEditor } from "./SoundtrackEditor";
 
 export function MovieEditor({
     changeEditing,
@@ -22,6 +23,7 @@ export function MovieEditor({
         (Math.ceil(movie.rating / 2) * 2).toString()
     );
     const [description, setDescription] = useState<string>(movie.description);
+    const [soundtrack, setSoundtrack] = useState<Song[]>(movie.soundtrack);
 
     function save() {
         editMovie(movie.id, {
@@ -29,7 +31,8 @@ export function MovieEditor({
             title: title,
             released: parseInt(releaseYear) || 0,
             rating: parseInt(rating) || 0,
-            description: description
+            description: description,
+            soundtrack: soundtrack
         });
         changeEditing();
     }
@@ -109,7 +112,10 @@ export function MovieEditor({
                         </Col>
                     </Form.Group>
                     {/* Soundtrack */}
-                    <ReadOnlySongs songs={movie.soundtrack}></ReadOnlySongs>
+                    <SoundtrackEditor
+                        songs={soundtrack}
+                        setSongs={setSoundtrack}
+                    ></SoundtrackEditor>
                     {/* Save/Cancel */}
                     <Button onClick={save} variant="success" className="me-4">
                         Save

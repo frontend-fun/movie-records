@@ -2,225 +2,15 @@
 > movie-records@0.1.0 test
 > react-scripts test "--coverage"
 
-  console.error
-    Warning: React does not recognize the `allowTransparency` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `allowtransparency` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
-        at iframe
-        at PlaySong (/home/runner/work/movie-records/movie-records/src/components/PlaySong.tsx:4:28)
-        at li
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/ListGroupItem.js:27:3
-        at ol
-        at /home/runner/work/movie-records/movie-records/node_modules/@restart/ui/cjs/Nav.js:43:9
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/ListGroup.js:38:43
-        at SongList (/home/runner/work/movie-records/movie-records/src/components/SongList.tsx:6:28)
-        at div
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Col.js:72:8
-        at div
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Row.js:22:3
-        at div
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Container.js:24:3
-        at MovieView (/home/runner/work/movie-records/movie-records/src/components/MovieView.tsx:12:5)
-        at div
-        at div
-        at /home/runner/work/movie-records/movie-records/node_modules/react-bootstrap/cjs/Stack.js:23:7
-        at MovieList (/home/runner/work/movie-records/movie-records/src/components/MovieList.tsx:7:5)
-        at div
-        at div
-        at App (/home/runner/work/movie-records/movie-records/src/App.tsx:29:33)
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
-      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
-      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
-      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
-      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
-
-FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (370 ms)
-
-  ● renders the course name somewhere
-
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [0mMovie Records[0m
-          [36m</header>[39m
-          [36m<div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"vstack gap-3"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"container"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"row"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"col"[39m
-                    [36m>[39m
-                      [36m<h3>[39m
-                        [0mKiki's Delivery Service[0m
-                      [36m</h3>[39m
-                      [36m<div>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"float-right me-3 btn btn-primary btn-sm"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0mMark as watched[0m
-                        [36m</button>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"float-right btn btn-primary btn-sm"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0mEdit[0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                      [36m<span>[39m
-                        [0m⭐⭐⭐⭐[0m
-                        [0m✰[0m
-                      [36m</span>[39m
-                      [36m<i>[39m
-                        [0m Released [0m
-                        [0m1990[0m
-                      [36m</i>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"row"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"col"[39m
-                    [36m>[39m
-                      [36m<p>[39m
-                        [0mIn this anime feature, 13-year-old Kiki moves to a seaside town with her talking cat, Jiji, to spend a year alone, in accordance with her village's tradition for witches in training. After learning to control her broomstick, Kiki sets up a flying courier service and soon becomes a fixture in the community. But when the insecure young witch begins questioning herself and loses her magic abilities, she must overcome her self-doubt to get her powers back.[0m
-                      [36m</p>[39m
-                      [36m<ol[39m
-                        [33mclass[39m=[32m"list-group list-group-numbered"[39m
-                      [36m>[39m
-                        [36m<li[39m
-                          [33mclass[39m=[32m"d-flex align-items-start list-group-item"[39m
-                        [36m>[39m
-                          [36m<iframe[39m
-                            [33mclass[39m=[32m"ms-4"[39m
-                            [33mframeborder[39m=[32m"0"[39m
-                            [33mheight[39m=[32m"80"[39m
-                            [33msrc[39m=[32m"https://open.spotify.com/embed?uri=spotify:track:2ZJ28Rm7OXMYJshLtp5uff?si=4b4c21e3d65b4b2a"[39m
-                            [33mwidth[39m=[32m"350"[39m
-                          [36m/>[39m
-                        [36m</li>[39m
-                        [36m<li[39m
-                          [33mclass[39m=[32m"d-flex align-items-start list-group-item"[39m
-                        [36m>[39m
-                          [36m<iframe[39m
-                            [33mclass[39m=[32m"ms-4"[39m
-                            [33mframeborder[39m=[32m"0"[39m
-                            [33mheight[39m=[32m"80"[39m
-                            [33msrc[39m=[32m"https://open.spotify.com/embed?uri=spotify:track:1P47jw1VxOTQ0MM6sGKCkP?si=154df33f810c4fda"[39m
-                            [33mwidth[39m=[32m"350"[39m
-                          [36m/>[39m
-                        [36m</li>[39m
-                      [36m</ol>[39m
-                    [36m</div>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"col"[39m
-                    [36m>[39m
-                      [36m<iframe[39m
-                        [33mallow[39m=[32m"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"[39m
-                        [33mallowfullscreen[39m=[32m""[39m
-                        [33mframeborder[39m=[32m"0"[39m
-                        [33mheight[39m=[32m"361"[39m
-                        [33msrc[39m=[32m"https://www.youtube.com/embed/4bG17OYs-GA"[39m
-                        [33mtitle[39m=[32m"YouTube video player"[39m
-                        [33mwidth[39m=[32m"642"[39m
-                      [36m/>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"container"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"row"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"col"[39m
-                    [36m>[39m
-                      [36m<h3>[39m
-                        [0mPonyo[0m
-                      [36m</h3>[39m
-                      [36m<div>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"float-right me-3 btn btn-primary btn-sm"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0mMark as watched[0m
-                        [36m</button>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"float-right btn btn-primary btn-sm"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0mEdit[0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                      [36m<span>[39m
-                        [0m⭐⭐⭐⭐[0m
-                        [0m✰[0m
-                      [36m</span>[39m
-                      [36m<i>[39m
-                        [0m Released [0m
-                        [0m2008[0m
-                      [36m</i>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"row"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"col"[39m
-                    [36m>[39m
-                      [36m<p>[39m
-                        [0mDuring a forbidden excursion to see the surface world, a goldfish princess encounters a human boy named Sosuke, who gives her the name Ponyo. Ponyo longs to become human, and as her friendship with Sosuke grows, she becomes more humanlike. Ponyo's f...
-
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-
+PASS src/components/WatchStatus.test.tsx
+PASS src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |   28.75 |    13.63 |   21.42 |   30.26 |                   
+All files              |      30 |    18.18 |   23.21 |   31.57 |                   
  src                   |      35 |        0 |   15.38 |   41.17 |                   
-  App.tsx              |      35 |        0 |   15.38 |   41.17 | 17,33-58          
- src/components        |   26.66 |    18.75 |   23.25 |   27.11 |                   
+  App.tsx              |      35 |        0 |   15.38 |   41.17 | 18,34-59          
+ src/components        |   28.33 |       25 |   25.58 |   28.81 |                   
   AddMovieModal.tsx    |   42.85 |      100 |      25 |   42.85 | 20-35,54          
   EditableSongList.tsx |       0 |      100 |       0 |       0 | 12-55             
   MovieEditor.tsx      |       0 |        0 |       0 |       0 | 18-127            
@@ -232,14 +22,15 @@ All files              |   28.75 |    13.63 |   21.42 |   30.26 |
   RecordControls.tsx   |      20 |    33.33 |      20 |      20 | 20-48             
   SongList.tsx         |     100 |      100 |     100 |     100 |                   
   SoundtrackEditor.tsx |       0 |        0 |       0 |       0 | 11-52             
-  WatchStatus.tsx      |       0 |        0 |       0 |       0 | 5                 
+  WatchStatus.tsx      |     100 |       50 |     100 |     100 | 7                 
  src/interfaces        |       0 |        0 |       0 |       0 |                   
   movie.ts             |       0 |        0 |       0 |       0 |                   
   song.ts              |       0 |        0 |       0 |       0 |                   
   watch.ts             |       0 |        0 |       0 |       0 |                   
 -----------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+
+Test Suites: 2 passed, 2 total
+Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        2.871 s
+Time:        3.146 s
 Ran all test suites.

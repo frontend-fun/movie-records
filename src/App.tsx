@@ -5,6 +5,7 @@ import { AddMovieModal } from "./components/AddMovieModal";
 import ghibli from "./data/ghibli_movies.json";
 import { Movie } from "./interfaces/movie";
 import { Button } from "react-bootstrap";
+import ApplicationSketch from "./assets/movie_records_sketch.png";
 
 const MOVIES = ghibli.map(
     (movie): Movie => ({
@@ -87,6 +88,7 @@ function App(): JSX.Element {
                     addMovie={addMovie}
                 ></AddMovieModal>
             </div>
+            <img src={ApplicationSketch}></img>
         </div>
     );
 }

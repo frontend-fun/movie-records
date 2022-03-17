@@ -8,7 +8,6 @@ export function PlaySong({ song }: { song: Song }): JSX.Element {
             frameBorder="0"
             height="80"
             width="350"
-            allowTransparency={true}
             className="ms-4"
         ></iframe>
     );

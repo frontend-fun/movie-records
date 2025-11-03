@@ -1,7 +1,4 @@
 module.exports = {
-    // Use the default configuration from react-scripts
-    ...require("react-scripts/config/jest/babelTransform"),
-
     // Collect coverage from source files
     collectCoverageFrom: [
         "src/**/*.{ts,tsx}",
@@ -11,7 +8,7 @@ module.exports = {
         "!src/**/*.d.ts"
     ],
 
-    // Coverage thresholds (optional - can be adjusted)
+    // Coverage thresholds (optional - can be adjusted as needed)
     coverageThresholds: {
         global: {
             branches: 0,
@@ -21,32 +18,9 @@ module.exports = {
         }
     },
 
-    // Test match patterns
-    testMatch: [
-        "<rootDir>/src/**/__tests__/**/*.{ts,tsx}",
-        "<rootDir>/src/**/*.{spec,test}.{ts,tsx}"
-    ],
-
     // Setup files
     setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
 
-    // Module name mapper for assets
-    moduleNameMapper: {
-        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    },
-
     // Test environment
-    testEnvironment: "jsdom",
-
-    // Transform files
-    transform: {
-        "^.+\\.(ts|tsx)$": [
-            "babel-jest",
-            {
-                presets: [
-                    ["react-app", { runtime: "automatic" }]
-                ]
-            }
-        ]
-    }
+    testEnvironment: "jsdom"
 };

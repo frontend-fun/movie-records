@@ -14,6 +14,8 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended",
         "prettier"
     ],
     "parser": "@typescript-eslint/parser",
@@ -24,7 +26,13 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier",
+        "testing-library",
+        "jest-dom"
+    ],
     "rules": {
         "prettier/prettier": [
             "error",

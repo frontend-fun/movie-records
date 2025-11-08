@@ -1,26 +1,30 @@
-module.exports = {
-    // Collect coverage from source files
-    collectCoverageFrom: [
-        "src/**/*.{ts,tsx}",
-        "!src/index.tsx",
-        "!src/reportWebVitals.ts",
-        "!src/react-app-env.d.ts",
-        "!src/**/*.d.ts"
-    ],
-
-    // Coverage thresholds (optional - can be adjusted as needed)
-    coverageThresholds: {
-        global: {
-            branches: 0,
-            functions: 0,
-            lines: 0,
-            statements: 0
-        }
+export default {
+    testEnvironment: "jsdom",
+    setupFilesAfterEnv: ["<rootDir>/tests/setupTests.ts"],
+    testMatch: ["<rootDir>/tests/**/*.(spec).(ts|tsx)"],
+    testPathIgnorePatterns: ["<rootDir>/tests/e2e/"],
+    transform: {
+        "^.+\\.(js|jsx|ts|tsx)$": [
+            "@swc/jest",
+            {
+                sourceMaps: true,
+                jsc: {
+                    parser: {
+                        syntax: "typescript",
+                        tsx: true,
+                    },
+                    transform: {
+                        react: {
+                            runtime: "automatic",
+                        },
+                    },
+                },
+            },
+        ],
     },
-
-    // Setup files
-    setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
-
-    // Test environment
-    testEnvironment: "jsdom"
+    moduleNameMapper: {
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$":
+            "jest-transform-stub",
+    },
 };

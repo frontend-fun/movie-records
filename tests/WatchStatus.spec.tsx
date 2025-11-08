@@ -1,12 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { WatchStatus } from "./WatchStatus";
+import { WatchStatus } from "../src/components/WatchStatus";
 
 describe("WatchStatus test cases", () => {
     const seenWatchStatus = {
         seen: false,
         liked: false,
-        when: null
+        when: null,
     };
     it("Renders the watch status", () => {
         render(<WatchStatus watched={seenWatchStatus}></WatchStatus>);
@@ -22,9 +22,9 @@ describe("WatchStatus test cases", () => {
                 watched={{
                     seen: false,
                     liked: false,
-                    when: null
+                    when: null,
                 }}
-            ></WatchStatus>
+            ></WatchStatus>,
         );
         const watchedText = screen.getByText(/Not yet watched/i);
         expect(watchedText).toBeInTheDocument();

@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { AddMovieModal } from "./AddMovieModal";
+import { AddMovieModal } from "../src/components/AddMovieModal";
+import type { Watch } from "../src/interfaces/watch";
 
 /**
  * Additional Jest Test Examples focusing on:
@@ -30,7 +30,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={false}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Using queryBy* to check for non-existence
@@ -47,7 +47,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Using getBy* when we expect element to exist
@@ -66,15 +66,13 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * Example 3: Testing form input with getByLabelText
      * - Shows how to find inputs by their associated labels
      */
-    test("should allow entering YouTube ID using getByLabelText", async () => {
-        const user = userEvent.setup();
-
+    test("should allow entering YouTube ID using getByLabelText", () => {
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Find input by its label text
@@ -82,7 +80,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
         expect(youtubeIdInput).toHaveValue("");
 
         // Type into the input
-        await user.type(youtubeIdInput, "dQw4w9WgXcQ");
+        userEvent.type(youtubeIdInput, "dQw4w9WgXcQ");
         expect(youtubeIdInput).toHaveValue("dQw4w9WgXcQ");
     });
 
@@ -91,25 +89,23 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * - Demonstrates verifying function calls with jest.fn()
      * - Uses getAllByRole and index to handle multiple "Close" buttons
      */
-    test("should call handleClose when Close button is clicked", async () => {
-        const user = userEvent.setup();
-
+    test("should call handleClose when Close button is clicked", () => {
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Get all Close buttons and click the footer one (second button with "Close")
         const allButtons = screen.getAllByRole("button");
         const closeButton = allButtons.find(
-            (btn) => btn.textContent === "Close"
+            (btn) => btn.textContent === "Close",
         );
 
         if (closeButton) {
-            await user.click(closeButton);
+            userEvent.click(closeButton);
         }
 
         expect(mockHandleClose).toHaveBeenCalledTimes(1);
@@ -121,26 +117,24 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * - Demonstrates sequential interactions
      * - Verifies callback with correct arguments
      */
-    test("should call addMovie with correct data when Save Changes is clicked", async () => {
-        const user = userEvent.setup();
-
+    test("should call addMovie with correct data when Save Changes is clicked", () => {
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Step 1: Fill in the YouTube ID
         const youtubeIdInput = screen.getByLabelText(/YouTube ID/i);
-        await user.type(youtubeIdInput, "test-video-id");
+        userEvent.type(youtubeIdInput, "test-video-id");
 
         // Step 2: Click Save Changes button
         const saveButton = screen.getByRole("button", {
-            name: /save changes/i
+            name: /save changes/i,
         });
-        await user.click(saveButton);
+        userEvent.click(saveButton);
 
         // Step 3: Verify addMovie was called with correct structure
         expect(mockAddMovie).toHaveBeenCalledTimes(1);
@@ -154,9 +148,9 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 watched: expect.objectContaining({
                     seen: false,
                     liked: false,
-                    when: null
-                })
-            })
+                    when: null,
+                }) as Watch,
+            }),
         );
 
         // Step 4: Verify modal close was triggered
@@ -174,16 +168,16 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // When there are multiple buttons with same name, use getAllByRole
         const allButtons = screen.getAllByRole("button");
         const closeButton = allButtons.find(
-            (btn) => btn.textContent === "Close"
+            (btn) => btn.textContent === "Close",
         );
         const saveButton = screen.getByRole("button", {
-            name: /save changes/i
+            name: /save changes/i,
         });
 
         expect(closeButton).toBeInTheDocument();
@@ -201,7 +195,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         const allButtons = screen.getAllByRole("button");
@@ -216,18 +210,16 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * - Demonstrates waiting for elements or state changes
      */
     test("should handle async operations with waitFor", async () => {
-        const user = userEvent.setup();
-
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         const youtubeIdInput = screen.getByLabelText(/YouTube ID/i);
-        await user.type(youtubeIdInput, "async-test-id");
+        userEvent.type(youtubeIdInput, "async-test-id");
 
         // Wait for the value to be updated
         await waitFor(() => {
@@ -239,27 +231,25 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * Example 9: Testing empty form submission
      * - Verifies behavior when no input is provided
      */
-    test("should handle save with empty YouTube ID", async () => {
-        const user = userEvent.setup();
-
+    test("should handle save with empty YouTube ID", () => {
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         const saveButton = screen.getByRole("button", {
-            name: /save changes/i
+            name: /save changes/i,
         });
-        await user.click(saveButton);
+        userEvent.click(saveButton);
 
         // Should still call addMovie, just with empty id
         expect(mockAddMovie).toHaveBeenCalledWith(
             expect.objectContaining({
-                id: ""
-            })
+                id: "",
+            }),
         );
     });
 
@@ -272,7 +262,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Find text content directly
@@ -285,30 +275,28 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
      * Example 11: Testing user interaction flow with multiple steps
      * - Demonstrates realistic user behavior
      */
-    test("should handle complete user interaction flow", async () => {
-        const user = userEvent.setup();
-
+    test("should handle complete user interaction flow", () => {
         render(
             <AddMovieModal
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // User types in YouTube ID
         const input = screen.getByLabelText(/YouTube ID/i);
-        await user.click(input); // Focus the input
-        await user.type(input, "my-movie-trailer");
+        userEvent.click(input); // Focus the input
+        userEvent.type(input, "my-movie-trailer");
 
         // Verify input value
         expect(input).toHaveValue("my-movie-trailer");
 
         // User clicks save
         const saveButton = screen.getByRole("button", {
-            name: /save changes/i
+            name: /save changes/i,
         });
-        await user.click(saveButton);
+        userEvent.click(saveButton);
 
         // Verify both callbacks were triggered in correct order
         expect(mockAddMovie).toHaveBeenCalled();
@@ -325,7 +313,7 @@ describe("AddMovieModal Component - Additional Jest Examples", () => {
                 show={true}
                 handleClose={mockHandleClose}
                 addMovie={mockAddMovie}
-            />
+            />,
         );
 
         // Text input has role="textbox"

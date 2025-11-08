@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MovieEditor } from "./MovieEditor";
-import { Movie } from "../interfaces/movie";
+import { MovieEditor } from "../src/components/MovieEditor";
+import type { Movie } from "../src/interfaces/movie";
 
 /**
  * Example Jest Test Suite demonstrating modern testing-library approaches
@@ -27,8 +27,8 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
         watched: {
             seen: true,
             liked: true,
-            when: "2023-01-01"
-        }
+            when: "2023-01-01",
+        },
     };
 
     const mockChangeEditing = jest.fn();
@@ -51,7 +51,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Example: Using getByRole to find inputs
@@ -70,23 +70,21 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
      * - userEvent.type() simulates typing (more realistic than fireEvent)
      * - Demonstrates clearing and entering new text
      */
-    test("should update title using userEvent.type()", async () => {
-        const user = userEvent.setup();
-
+    test("should update title using userEvent.type()", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         const titleInput = screen.getByRole("textbox", { name: /title/i });
 
         // Clear existing text and type new text
-        await user.clear(titleInput);
-        await user.type(titleInput, "New Movie Title");
+        userEvent.clear(titleInput);
+        userEvent.type(titleInput, "New Movie Title");
 
         expect(titleInput).toHaveValue("New Movie Title");
     });
@@ -95,16 +93,14 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
      * Example 3: Using userEvent for select dropdown
      * - Demonstrates selecting options from a dropdown
      */
-    test("should change rating using userEvent.selectOptions()", async () => {
-        const user = userEvent.setup();
-
+    test("should change rating using userEvent.selectOptions()", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Find the select element using getByRole
@@ -114,7 +110,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
         expect(ratingSelect).toHaveValue("8");
 
         // Change to 10 stars
-        await user.selectOptions(ratingSelect, "10");
+        userEvent.selectOptions(ratingSelect, "10");
 
         expect(ratingSelect).toHaveValue("10");
     });
@@ -129,7 +125,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Find input by its current display value
@@ -145,47 +141,45 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
      * - Demonstrates a realistic user workflow
      * - Shows userEvent interactions with various form elements
      */
-    test("should handle complete edit workflow with multiple interactions", async () => {
-        const user = userEvent.setup();
-
+    test("should handle complete edit workflow with multiple interactions", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Step 1: Update title
         const titleInput = screen.getByRole("textbox", { name: /title/i });
-        await user.clear(titleInput);
-        await user.type(titleInput, "Updated Title");
+        userEvent.clear(titleInput);
+        userEvent.type(titleInput, "Updated Title");
         expect(titleInput).toHaveValue("Updated Title");
 
         // Step 2: Update release year (using getByDisplayValue since label appears twice)
-        const yearInput = screen.getByDisplayValue("2020") as HTMLInputElement;
-        await user.clear(yearInput);
-        await user.type(yearInput, "2024");
+        const yearInput = screen.getByDisplayValue<HTMLInputElement>("2020");
+        userEvent.clear(yearInput);
+        userEvent.type(yearInput, "2024");
         // Number inputs may return numeric values
         expect(yearInput.value).toBe("2024");
 
         // Step 3: Update rating
         const ratingSelect = screen.getByRole("combobox");
-        await user.selectOptions(ratingSelect, "10");
+        userEvent.selectOptions(ratingSelect, "10");
         expect(ratingSelect).toHaveValue("10");
 
         // Step 4: Update description
         const descriptionInput = screen.getByLabelText(/description/i);
-        await user.clear(descriptionInput);
-        await user.type(descriptionInput, "Brand new description for testing");
+        userEvent.clear(descriptionInput);
+        userEvent.type(descriptionInput, "Brand new description for testing");
         expect(descriptionInput).toHaveValue(
-            "Brand new description for testing"
+            "Brand new description for testing",
         );
 
         // Step 5: Click save button
         const saveButton = screen.getByRole("button", { name: /save/i });
-        await user.click(saveButton);
+        userEvent.click(saveButton);
 
         // Verify callbacks were called
         expect(mockEditMovie).toHaveBeenCalledTimes(1);
@@ -195,7 +189,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
             released: 2024,
             rating: 10,
             description: "Brand new description for testing",
-            soundtrack: mockMovie.soundtrack
+            soundtrack: mockMovie.soundtrack,
         });
         expect(mockChangeEditing).toHaveBeenCalledTimes(1);
     });
@@ -203,20 +197,18 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
     /**
      * Example 6: Using userEvent.click() for button interactions
      */
-    test("should handle cancel button click", async () => {
-        const user = userEvent.setup();
-
+    test("should handle cancel button click", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         const cancelButton = screen.getByRole("button", { name: /cancel/i });
-        await user.click(cancelButton);
+        userEvent.click(cancelButton);
 
         expect(mockChangeEditing).toHaveBeenCalledTimes(1);
         expect(mockEditMovie).not.toHaveBeenCalled();
@@ -225,20 +217,18 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
     /**
      * Example 7: Using userEvent.click() with delete button
      */
-    test("should handle delete button click", async () => {
-        const user = userEvent.setup();
-
+    test("should handle delete button click", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         const deleteButton = screen.getByRole("button", { name: /delete/i });
-        await user.click(deleteButton);
+        userEvent.click(deleteButton);
 
         expect(mockDeleteMovie).toHaveBeenCalledTimes(1);
         expect(mockDeleteMovie).toHaveBeenCalledWith("test-movie-123");
@@ -255,16 +245,15 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // queryBy returns null if element doesn't exist (no error thrown)
         const nonExistentElement = screen.queryByText(
-            "This text does not exist"
+            "This text does not exist",
         );
         expect(nonExistentElement).not.toBeInTheDocument();
         // Demonstrating toBeNull as an alternative check
-        // eslint-disable-next-line jest-dom/prefer-in-document
         expect(nonExistentElement).toBeNull();
 
         // getBy would throw an error if element doesn't exist
@@ -284,7 +273,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Use the container from render
@@ -295,28 +284,26 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
     /**
      * Example 10: Testing textarea with userEvent
      */
-    test("should handle textarea input with userEvent", async () => {
-        const user = userEvent.setup();
-
+    test("should handle textarea input with userEvent", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         const descriptionTextarea = screen.getByLabelText(/description/i);
 
-        await user.clear(descriptionTextarea);
-        await user.type(
+        userEvent.clear(descriptionTextarea);
+        userEvent.type(
             descriptionTextarea,
-            "This is a multi-line{Enter}description with{Enter}line breaks"
+            "This is a multi-line{Enter}description with{Enter}line breaks",
         );
 
         expect(descriptionTextarea).toHaveValue(
-            "This is a multi-line\ndescription with\nline breaks"
+            "This is a multi-line\ndescription with\nline breaks",
         );
     });
 
@@ -330,7 +317,7 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         const saveButton = screen.getByRole("button", { name: /save/i });
@@ -347,24 +334,22 @@ describe("MovieEditor Component - Jest Feature Examples", () => {
      * Example 12: Testing number input specifically
      * - Number inputs return numeric values in React
      */
-    test("should handle number input for release year", async () => {
-        const user = userEvent.setup();
-
+    test("should handle number input for release year", () => {
         render(
             <MovieEditor
                 changeEditing={mockChangeEditing}
                 movie={mockMovie}
                 editMovie={mockEditMovie}
                 deleteMovie={mockDeleteMovie}
-            />
+            />,
         );
 
         // Find the number input specifically by using getByDisplayValue
-        const yearInput = screen.getByDisplayValue("2020") as HTMLInputElement;
+        const yearInput = screen.getByDisplayValue<HTMLInputElement>("2020");
 
         // Clear and type new value
-        await user.clear(yearInput);
-        await user.type(yearInput, "1999");
+        userEvent.clear(yearInput);
+        userEvent.type(yearInput, "1999");
 
         // Check using the value property directly
         expect(yearInput.value).toBe("1999");

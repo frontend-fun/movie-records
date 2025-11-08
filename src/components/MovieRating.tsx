@@ -1,6 +1,4 @@
-import React from "react";
-
-export function MovieRating({ rating }: { rating: number }): JSX.Element {
+export function MovieRating({ rating }: { rating: number }) {
     const stars = Math.ceil(rating / 2);
     const filledStars = "⭐".repeat(stars);
     const emptyStars = "✰".repeat(5 - stars);

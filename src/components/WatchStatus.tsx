@@ -1,7 +1,6 @@
-import React from "react";
-import { Watch } from "../interfaces/watch";
+import type { Watch } from "../interfaces/watch";
 
-export function WatchStatus({ watched }: { watched: Watch }): JSX.Element {
+export function WatchStatus({ watched }: { watched: Watch }) {
     return (
         <div>
             <em>{watched.seen ? "Watched" : "Not yet watched"}</em>

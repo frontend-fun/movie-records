@@ -1,19 +1,18 @@
-import React from "react";
-import { Movie } from "../interfaces/movie";
-import { Stack } from "react-bootstrap";
+import type { Movie } from "../interfaces/movie";
+import Stack from "react-bootstrap/Stack";
 import { MovieView } from "./MovieView";
 
 export function MovieList({
     movies,
     deleteMovie,
     editMovie,
-    setMovieWatched
+    setMovieWatched,
 }: {
     movies: Movie[];
     deleteMovie: (id: string) => void;
     editMovie: (id: string, newMovie: Movie) => void;
     setMovieWatched: (id: string, s: boolean, l: boolean) => void;
-}): JSX.Element {
+}) {
     return (
         <Stack gap={3}>
             {movies.map((movie: Movie) => (

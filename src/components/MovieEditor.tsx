@@ -1,26 +1,30 @@
 import React, { useState } from "react";
-import { Button, Container, Row, Col, Form } from "react-bootstrap";
-import { Movie } from "../interfaces/movie";
-import { Song } from "../interfaces/song";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import type { Movie } from "../interfaces/movie";
+import type { Song } from "../interfaces/song";
 import { SoundtrackEditor } from "./SoundtrackEditor";
 
 export function MovieEditor({
     changeEditing,
     movie,
     editMovie,
-    deleteMovie
+    deleteMovie,
 }: {
     changeEditing: () => void;
     movie: Movie;
     editMovie: (id: string, newMovie: Movie) => void;
     deleteMovie: (id: string) => void;
-}): JSX.Element {
+}) {
     const [title, setTitle] = useState<string>(movie.title);
     const [releaseYear, setReleaseYear] = useState<string>(
-        movie.released.toString()
+        movie.released.toString(),
     );
     const [rating, setRating] = useState<string>(
-        (Math.ceil(movie.rating / 2) * 2).toString()
+        (Math.ceil(movie.rating / 2) * 2).toString(),
     );
     const [description, setDescription] = useState<string>(movie.description);
     const [soundtrack, setSoundtrack] = useState<Song[]>(movie.soundtrack);
@@ -32,7 +36,7 @@ export function MovieEditor({
             released: parseInt(releaseYear) || 0,
             rating: parseInt(rating) || 0,
             description: description,
-            soundtrack: soundtrack
+            soundtrack: soundtrack,
         });
         changeEditing();
     }
@@ -54,7 +58,7 @@ export function MovieEditor({
                             <Form.Control
                                 value={title}
                                 onChange={(
-                                    event: React.ChangeEvent<HTMLInputElement>
+                                    event: React.ChangeEvent<HTMLInputElement>,
                                 ) => setTitle(event.target.value)}
                             />
                         </Col>
@@ -69,7 +73,7 @@ export function MovieEditor({
                                 type="number"
                                 value={releaseYear}
                                 onChange={(
-                                    event: React.ChangeEvent<HTMLInputElement>
+                                    event: React.ChangeEvent<HTMLInputElement>,
                                 ) => setReleaseYear(event.target.value)}
                             />
                         </Col>
@@ -83,7 +87,7 @@ export function MovieEditor({
                             <Form.Select
                                 value={rating}
                                 onChange={(
-                                    event: React.ChangeEvent<HTMLSelectElement>
+                                    event: React.ChangeEvent<HTMLSelectElement>,
                                 ) => setRating(event.target.value)}
                             >
                                 <option value="0">✰✰✰✰✰</option>
@@ -106,7 +110,7 @@ export function MovieEditor({
                                 rows={3}
                                 value={description}
                                 onChange={(
-                                    event: React.ChangeEvent<HTMLTextAreaElement>
+                                    event: React.ChangeEvent<HTMLTextAreaElement>,
                                 ) => setDescription(event.target.value)}
                             />
                         </Col>

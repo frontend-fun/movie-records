@@ -1,5 +1,5 @@
-import { Song } from "./song";
-import { Watch } from "./watch";
+import type { Song } from "./song";
+import type { Watch } from "./watch";
 
 export interface Movie {
     title: string;

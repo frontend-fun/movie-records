@@ -1,13 +1,17 @@
 import React from "react";
-import { Button, ListGroup, Form, Col, Row } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 export function EditableSongList({
     songs,
-    setSongs
+    setSongs,
 }: {
     songs: string[];
     setSongs: (songs: string[]) => void;
-}): JSX.Element {
+}) {
     function addSong() {
         setSongs([...songs, ""]);
     }
@@ -42,7 +46,7 @@ export function EditableSongList({
                                     <Form.Control
                                         value={song}
                                         onChange={(
-                                            event: React.ChangeEvent<HTMLInputElement>
+                                            event: React.ChangeEvent<HTMLInputElement>,
                                         ) =>
                                             editSong(index, event.target.value)
                                         }

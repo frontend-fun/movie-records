@@ -165,7 +165,7 @@ jobs:
                   md5sum tsconfig.app.json >> ./dist/integrity.html
                   md5sum tsconfig.node.json >> ./dist/integrity.html
                   md5sum vite.config.ts >> ./dist/integrity.html
-                  md5sum .github/workflows/node.js.yaml >> ./dist/integrity.html
+                  md5sum .github/workflows/node.js.yml >> ./dist/integrity.html
                   echo "</pre></body></html>" >> ./dist/integrity.html
                   echo "* [Integrity](../integrity.html)" >> docs/dashboard.md
 

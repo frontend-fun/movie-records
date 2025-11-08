@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { MovieList } from "./components/MovieList";
 import { AddMovieModal } from "./components/AddMovieModal";
 import ghibli from "./data/ghibli_movies.json";
-import { Movie } from "./interfaces/movie";
-import { Button } from "react-bootstrap";
+import type { Movie } from "./interfaces/movie";
+import Button from "react-bootstrap/Button";
 import ApplicationSketch from "./assets/movie_records_sketch.png";
 
 const MOVIES = ghibli.map(
     (movie): Movie => ({
         ...movie,
-        watched: { seen: false, liked: false, when: null }
-    })
+        watched: { seen: false, liked: false, when: null },
+    }),
 );
 
 function watchMovie(movie: Movie, seen: boolean, liked: boolean): Movie {
@@ -21,12 +22,12 @@ function watchMovie(movie: Movie, seen: boolean, liked: boolean): Movie {
             ...movie.watched,
             seen: seen,
             liked: liked,
-            when: new Date().toLocaleString()
-        }
+            when: new Date().toLocaleString(),
+        },
     };
 }
 
-function App(): JSX.Element {
+function App() {
     const [movies, setMovies] = useState<Movie[]>(MOVIES);
     const [showAddModal, setShowAddModal] = useState(false);
 
@@ -34,16 +35,16 @@ function App(): JSX.Element {
         setMovies(
             movies.map(
                 (movie: Movie): Movie =>
-                    id === movie.id ? watchMovie(movie, seen, liked) : movie
-            )
+                    id === movie.id ? watchMovie(movie, seen, liked) : movie,
+            ),
         );
     }
 
     function editMovie(id: string, newMovie: Movie) {
         setMovies(
             movies.map(
-                (movie: Movie): Movie => (movie.id === id ? newMovie : movie)
-            )
+                (movie: Movie): Movie => (movie.id === id ? newMovie : movie),
+            ),
         );
     }
 
@@ -53,7 +54,7 @@ function App(): JSX.Element {
 
     function addMovie(newMovie: Movie) {
         const existing = movies.find(
-            (movie: Movie): boolean => movie.id === newMovie.id
+            (movie: Movie): boolean => movie.id === newMovie.id,
         );
         if (existing === undefined) {
             setMovies([...movies, newMovie]);

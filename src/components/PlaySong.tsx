@@ -1,7 +1,6 @@
-import React from "react";
-import { Song } from "../interfaces/song";
+import type { Song } from "../interfaces/song";
 
-export function PlaySong({ song }: { song: Song }): JSX.Element {
+export function PlaySong({ song }: { song: Song }) {
     return (
         <iframe
             src={`https://open.spotify.com/embed?uri=spotify:track:${song.id}`}

@@ -1,6 +1,4 @@
-import React from "react";
-
-export function MovieTrailer({ id }: { id: string }): JSX.Element {
+export function MovieTrailer({ id }: { id: string }) {
     return (
         <iframe
             width="642"

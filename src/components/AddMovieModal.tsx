@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Col, Row } from "react-bootstrap";
-import { Movie } from "../interfaces/movie";
-import { Song } from "../interfaces/song";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import type { Movie } from "../interfaces/movie";
+import type { Song } from "../interfaces/song";
 import { EditableSongList } from "./EditableSongList";
 
 export function AddMovieModal({
     show,
     handleClose,
-    addMovie
+    addMovie,
 }: {
     show: boolean;
     handleClose: () => void;
@@ -24,13 +28,13 @@ export function AddMovieModal({
             description: "",
             released: 0,
             soundtrack: songs.map(
-                (song: string): Song => ({ id: song, name: "", by: "" })
+                (song: string): Song => ({ id: song, name: "", by: "" }),
             ),
             watched: {
                 seen: false,
                 liked: false,
-                when: null
-            }
+                when: null,
+            },
         });
         handleClose();
     }
@@ -50,7 +54,7 @@ export function AddMovieModal({
                         <Form.Control
                             value={id}
                             onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
+                                event: React.ChangeEvent<HTMLInputElement>,
                             ) => setId(event.target.value)}
                         />
                     </Col>

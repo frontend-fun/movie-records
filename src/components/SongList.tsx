@@ -1,9 +1,8 @@
-import React from "react";
-import { Song } from "../interfaces/song";
-import { ListGroup } from "react-bootstrap";
+import type { Song } from "../interfaces/song";
+import ListGroup from "react-bootstrap/ListGroup";
 import { PlaySong } from "./PlaySong";
 
-export function SongList({ songs }: { songs: Song[] }): JSX.Element {
+export function SongList({ songs }: { songs: Song[] }) {
     return (
         <ListGroup as="ol" numbered>
             {songs.map((song: Song) => (

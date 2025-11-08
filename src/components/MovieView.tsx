@@ -26,36 +26,44 @@ export function MovieView({
         setEditing(!editing);
     }
 
-    return editing ?
-            <MovieEditor
-                changeEditing={changeEditing}
-                movie={movie}
-                editMovie={editMovie}
-                deleteMovie={deleteMovie}
-            ></MovieEditor>
-        :   <Container>
-                <Row>
-                    <Col>
-                        <h3>{movie.title}</h3>
-                        <RecordControls
-                            setMovieWatched={(seen: boolean, liked: boolean) =>
-                                setMovieWatched(movie.id, seen, liked)
-                            }
-                            watched={movie.watched}
-                            changeEditing={changeEditing}
-                        ></RecordControls>
-                        <MovieRating rating={movie.rating}></MovieRating>
-                        <i> Released {movie.released}</i>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <p>{movie.description}</p>
-                        <SongList songs={movie.soundtrack}></SongList>
-                    </Col>
-                    <Col>
-                        <MovieTrailer id={movie.id}></MovieTrailer>
-                    </Col>
-                </Row>
-            </Container>;
+    return (
+        <>
+            {editing && (
+                <MovieEditor
+                    changeEditing={changeEditing}
+                    movie={movie}
+                    editMovie={editMovie}
+                    deleteMovie={deleteMovie}
+                ></MovieEditor>
+            )}
+            <div style={{ display: editing ? "none" : "block" }}>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h3>{movie.title}</h3>
+                            <RecordControls
+                                setMovieWatched={(
+                                    seen: boolean,
+                                    liked: boolean,
+                                ) => setMovieWatched(movie.id, seen, liked)}
+                                watched={movie.watched}
+                                changeEditing={changeEditing}
+                            ></RecordControls>
+                            <MovieRating rating={movie.rating}></MovieRating>
+                            <i> Released {movie.released}</i>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <p>{movie.description}</p>
+                            <SongList songs={movie.soundtrack}></SongList>
+                        </Col>
+                        <Col>
+                            <MovieTrailer id={movie.id}></MovieTrailer>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        </>
+    );
 }

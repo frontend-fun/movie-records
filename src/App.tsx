@@ -89,7 +89,19 @@ function App() {
                     addMovie={addMovie}
                 ></AddMovieModal>
             </div>
-            <img src={ApplicationSketch}></img>
+            <div className="mb-4">
+                <div className="mb-2">
+                    <span>Application Sketch:</span>
+                </div>
+                <img
+                    src={ApplicationSketch}
+                    style={{
+                        width: "400px",
+                        height: "auto",
+                        margin: "20px 30px",
+                    }}
+                ></img>
+            </div>
         </div>
     );
 }

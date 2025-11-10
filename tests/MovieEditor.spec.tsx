@@ -38,4 +38,85 @@ describe("MovieEditor Component", () => {
 
         expect(title).toBeInTheDocument();
     });
+    describe("Save Button", () => {
+        test("calls editMovie and changeEditing on save", () => {
+            const saveButton = screen.getByRole("button", { name: /save/i });
+            saveButton.click();
+
+            expect(mockEditMovie).toHaveBeenCalledWith(
+                mockMovie.id,
+                expect.objectContaining({
+                    title: "The Test Movie",
+                    rating: 8,
+                    description: "A movie for testing",
+                    released: 2020,
+                }),
+            );
+            expect(mockChangeEditing).toHaveBeenCalled();
+        });
+    });
+    describe("Cancel Button", () => {
+        test("calls changeEditing on cancel", () => {
+            const cancelButton = screen.getByRole("button", {
+                name: /cancel/i,
+            });
+            cancelButton.click();
+
+            expect(mockChangeEditing).toHaveBeenCalled();
+        });
+    });
+    describe("setTitle", () => {
+        test("updates title state on input change", () => {
+            const titleInput = screen.getByDisplayValue("The Test Movie");
+            titleInput.focus();
+            (titleInput as HTMLInputElement).value = "Updated Test Movie";
+            titleInput.blur();
+
+            const saveButton = screen.getByRole("button", { name: /save/i });
+            saveButton.click();
+
+            expect(mockEditMovie).toHaveBeenCalledWith(
+                mockMovie.id,
+                expect.objectContaining({
+                    title: "Updated Test Movie",
+                }),
+            );
+        });
+    });
+    describe("setReleaseYear updates release year when called", () => {
+        test("updates release year state on input change", () => {
+            const releaseYearInput = screen.getByDisplayValue("2020");
+            releaseYearInput.focus();
+            (releaseYearInput as HTMLInputElement).value = "2021";
+            releaseYearInput.blur();
+
+            const saveButton = screen.getByRole("button", { name: /save/i });
+            saveButton.click();
+
+            expect(mockEditMovie).toHaveBeenCalledWith(
+                mockMovie.id,
+                expect.objectContaining({
+                    released: 2021,
+                }),
+            );
+        });
+    });
+    describe("setRating updates rating when called", () => {
+        test("updates rating state on input change", () => {
+            const ratingInput = screen.getByDisplayValue("8");
+            ratingInput.focus();
+            (ratingInput as HTMLInputElement).value = "10";
+            ratingInput.blur();
+
+            const saveButton = screen.getByRole("button", { name: /save/i });
+            saveButton.click();
+
+            expect(mockEditMovie).toHaveBeenCalledWith(
+                mockMovie.id,
+                expect.objectContaining({
+                    rating: 10,
+                }),
+            );
+        });
+    });
 });

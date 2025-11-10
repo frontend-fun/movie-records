@@ -1,6 +1,7 @@
 import type { Movie } from "../src/interfaces/movie";
 import { MovieEditor } from "../src/components/MovieEditor";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("MovieEditor Component", () => {
     const mockMovie: Movie = {
@@ -37,5 +38,39 @@ describe("MovieEditor Component", () => {
         const title = screen.getByDisplayValue("The Test Movie");
 
         expect(title).toBeInTheDocument();
+    });
+
+    test("updates release year input when typing", () => {
+        const mockMovie: Movie = {
+            id: "m1",
+            title: "Some Movie",
+            rating: 8,
+            description: "",
+            released: 2020,
+            soundtrack: [],
+            watched: { seen: false, liked: false, when: null },
+        };
+
+        render(
+            <MovieEditor
+                movie={mockMovie}
+                changeEditing={jest.fn()}
+                editMovie={jest.fn()}
+                deleteMovie={jest.fn()}
+            />,
+        );
+
+        const releaseYearInput = screen.getByRole<HTMLInputElement>(
+            "spinbutton",
+            {
+                name: /Release Year:/i,
+            },
+        );
+        expect(releaseYearInput.value).toBe("2020");
+
+        userEvent.clear(releaseYearInput);
+        userEvent.type(releaseYearInput, "2024");
+
+        expect(releaseYearInput.value).toBe("2024");
     });
 });

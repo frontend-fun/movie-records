@@ -199,7 +199,10 @@ describe("Advanced Form Testing", () => {
      * - Tests all form elements in sequence
      */
     test("should handle complete form interaction sequence", () => {
-        const mockSubmit = jest.fn();
+        const mockSubmit = jest.fn<
+            void,
+            [data: { subscribe: boolean; plan: string; name: string }]
+        >();
 
         render(<MockFormComponent onSubmit={mockSubmit} />);
 
@@ -288,6 +291,22 @@ describe("Advanced Form Testing", () => {
         expect(checkbox).not.toBeChecked();
     });
 
+    test("should allow tabbing through all focusable elements", () => {
+        render(<MockFormComponent />);
+
+        const order = [
+            screen.getByLabelText(/full name/i),
+            screen.getByRole("checkbox"),
+            ...screen.getAllByRole("radio"),
+            screen.getByRole("button", { name: /submit/i }),
+        ];
+
+        order.forEach((element) => {
+            userEvent.tab();
+            expect(element).toHaveFocus();
+        });
+    });
+
     /**
      * Example 9: Testing with toHaveAttribute
      * - Shows verifying element attributes
@@ -337,6 +356,53 @@ describe("Advanced Form Testing", () => {
 
         userEvent.type(nameInput, "New Name");
         expect(nameInput).toHaveValue("New Name");
+    });
+
+    test("should handle multiple radio state changes sequentially", () => {
+        render(<MockFormComponent />);
+        const radios = screen.getAllByRole("radio");
+
+        // Click each one twice to toggle back and forth
+        radios.forEach((r) => {
+            userEvent.click(r);
+            expect(r).toBeChecked();
+        });
+
+        // Go back to basic
+        userEvent.click(radios[0]);
+        expect(radios[0]).toBeChecked();
+    });
+
+    test("should allow multiple submissions and persist last state", () => {
+        const mockSubmit = jest.fn<
+            void,
+            [data: { subscribe: boolean; plan: string; name: string }]
+        >();
+        render(<MockFormComponent onSubmit={mockSubmit} />);
+
+        const nameInput = screen.getByLabelText(/full name/i);
+        const checkbox = screen.getByRole("checkbox", { name: /subscribe/i });
+        const premiumRadio = screen.getByRole("radio", {
+            name: /premium plan/i,
+        });
+        const submitButton = screen.getByRole("button", { name: /submit/i });
+
+        // Submit 1
+        userEvent.type(nameInput, "First User");
+        userEvent.click(checkbox);
+        userEvent.click(premiumRadio);
+        userEvent.click(submitButton);
+
+        // Submit 2
+        userEvent.clear(nameInput);
+        userEvent.type(nameInput, "Second User");
+        userEvent.click(submitButton);
+
+        expect(mockSubmit).toHaveBeenCalledTimes(2);
+        expect(mockSubmit.mock.calls[1][0]).toHaveProperty(
+            "name",
+            "Second User",
+        );
     });
 
     /**

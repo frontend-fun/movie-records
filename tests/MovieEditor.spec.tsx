@@ -2,7 +2,7 @@ import type { Movie } from "../src/interfaces/movie";
 import { MovieEditor } from "../src/components/MovieEditor";
 import { render, screen } from "@testing-library/react";
 
-describe("MovieEditor Component - Jest Feature Examples", () => {
+describe("MovieEditor Component", () => {
     const mockMovie: Movie = {
         id: "test-movie-123",
         title: "The Test Movie",

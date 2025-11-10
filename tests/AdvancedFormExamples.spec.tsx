@@ -3,6 +3,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 /**
+ * These are AI generated tests. Take them with a grain of salt.
+ * Still, I wanted to provide some additional examples.
+ *
  * Advanced Jest Test Examples focusing on:
  * - Checkbox interactions with toBeChecked assertion
  * - Radio button interactions
@@ -97,7 +100,7 @@ const MockFormComponent = ({
     );
 };
 
-describe("Advanced Form Testing - Checkboxes, Radio Buttons, and More", () => {
+describe("Advanced Form Testing", () => {
     /**
      * Example 1: Testing checkbox with toBeChecked assertion
      * - Shows how to verify checkbox state

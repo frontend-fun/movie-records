@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { WatchStatus } from "../src/components/WatchStatus";
 
-describe("WatchStatus test cases", () => {
+describe("WatchStatus component", () => {
     const seenWatchStatus = {
         seen: false,
         liked: false,

@@ -4,6 +4,7 @@ import { AddMovieModal } from "../src/components/AddMovieModal";
 import type { Watch } from "../src/interfaces/watch";
 
 /**
+ * These are AI-generated test for the dialog.
  * Additional Jest Test Examples focusing on:
  * - Modal interactions
  * - Using findBy* for asynchronous queries
@@ -11,7 +12,7 @@ import type { Watch } from "../src/interfaces/watch";
  * - Complex user workflows
  */
 
-describe("AddMovieModal Component - Additional Jest Examples", () => {
+describe("AddMovieModal Component", () => {
     const mockHandleClose = jest.fn();
     const mockAddMovie = jest.fn();
 

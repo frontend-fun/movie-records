@@ -35,7 +35,7 @@ describe("RecordControls component", () => {
         expect(screen.getByText(/Liked/i)).toBeInTheDocument();
 
         fireEvent.click(screen.getByText(/Liked/i));
-        expect(mockSetMovieWatched).toHaveBeenCalledWith(true, true);
+        expect(mockSetMovieWatched).toHaveBeenCalledWith(true, false);
     });
 
     it("renders correctly when seen and not liked", () => {
@@ -49,7 +49,7 @@ describe("RecordControls component", () => {
 
         expect(screen.getByText(/Not liked/i)).toBeInTheDocument();
         fireEvent.click(screen.getByText(/Not liked/i));
-        expect(mockSetMovieWatched).toHaveBeenCalledWith(true, false);
+        expect(mockSetMovieWatched).toHaveBeenCalledWith(true, true);
     });
 
     it("clicking Edit calls changeEditing", () => {
